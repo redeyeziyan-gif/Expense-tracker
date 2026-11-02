@@ -488,3 +488,26 @@ $("emptyAdd").addEventListener("click", () =>
 initMonths();
 
 render();
+$("saveBudget").addEventListener("click", () => {
+  const input = $("budgetInput").value;
+
+  if (input.trim() === "") {
+    showToast("Please enter your monthly budget.");
+    return;
+  }
+
+  const newBudget = Number(input);
+
+  if (!Number.isFinite(newBudget) || newBudget < 0) {
+    showToast("Please enter a valid budget.");
+    return;
+  }
+
+  budget = newBudget;
+
+  localStorage.setItem(BUDGET_KEY, String(budget));
+
+  render();
+
+  showToast("Monthly budget updated! ✦");
+});
