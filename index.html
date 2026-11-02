@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ExpenseFlow — Personal Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✦</div><span>Expense<span class="brand-light">Flow</span></span></div>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav>
+      <a class="nav-item active" href="#overview"><span class="nav-icon">◫</span> Overview</a>
+      <a class="nav-item" href="#transactions"><span class="nav-icon">↔</span> Transactions</a>
+      <a class="nav-item" href="#budgets"><span class="nav-icon">◷</span> Budgets</a>
+      <a class="nav-item" href="#insights"><span class="nav-icon">▥</span> Insights</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="tip-card"><div class="tip-spark">✧</div><strong>Small steps,<br>big savings.</strong><p>Track your spending and make every rupee count.</p></div>
+      <div class="profile"><div class="avatar">Z</div><div><b>Your account</b><small>Personal workspace</small></div><span class="dots">•••</span></div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="overview">
+    <header class="topbar"><div><p class="eyebrow">MONDAY, YOUR MONEY DAY</p><h1>Good afternoon <span>✦</span></h1><p class="subtitle">Here’s the snapshot of your finances.</p></div>
+      <div class="top-actions"><button class="icon-btn" title="Notifications">♧<i></i></button><button class="primary-btn" id="openForm">＋ Add expense</button></div>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary-card balance-card"><div class="card-top"><span>Total expenses</span><span class="card-icon violet">↗</span></div><h2 id="totalAmount">₹0</h2><div class="card-foot"><span class="trend">↗ <b id="monthCount">0</b> entries this month</span><span class="muted">This month</span></div><div class="decor-orb"></div></article>
+      <article class="summary-card"><div class="card-top"><span>Monthly budget</span><span class="card-icon mint">◷</span></div><h2 id="budgetAmount">₹25,000</h2><div class="progress-track"><div class="progress-fill" id="budgetProgress"></div></div><div class="card-foot"><span id="budgetUsed">0% used</span><span class="muted" id="budgetRemaining">₹25,000 left</span></div></article>
+      <article class="summary-card"><div class="card-top"><span>Daily average</span><span class="card-icon peach">⌁</span></div><h2 id="dailyAverage">₹0</h2><div class="card-foot"><span class="neutral-pill">Based on this month</span><span class="muted">Per day</span></div></article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel spending-panel" id="insights">
+        <div class="panel-heading"><div><h3>Spending overview</h3><p>Your expense breakdown by category</p></div><select id="monthSelect" aria-label="Select month"></select></div>
+        <div class="chart-layout"><div class="donut-wrap"><div class="donut" id="donut"><div class="donut-center"><strong id="donutTotal">₹0</strong><small>Total spent</small></div></div></div><div class="legend" id="legend"><div class="empty-legend">Add expenses to see your breakdown.</div></div></div>
+      </article>
+      <article class="panel quick-panel">
+        <div class="panel-heading"><div><h3>Quick add</h3><p>Capture it before you forget</p></div><span class="quick-symbol">✦</span></div>
+        <form id="expenseForm" class="expense-form">
+          <label>Amount <div class="amount-input"><span>₹</span><input id="amount" type="number" min="1" step="0.01" placeholder="0.00" required></div></label>
+          <div class="form-row"><label>Category<select id="category"><option>Food & Dining</option><option>Transport</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Education</option><option>Entertainment</option><option>Other</option></select></label><label>Date<input id="date" type="date" required></label></div>
+          <label>Description<input id="description" type="text" placeholder="What did you spend on?" maxlength="80"></label>
+          <button class="submit-btn" type="submit">Add transaction <span>↗</span></button>
+          <p class="form-note">Your data stays saved in this browser.</p>
+        </form>
+      </article>
+    </section>
+
+    <section class="panel transactions-panel" id="transactions">
+      <div class="panel-heading transactions-heading"><div><h3>Recent transactions</h3><p>A closer look at where your money goes</p></div><div class="transaction-tools"><input id="search" type="search" placeholder="⌕  Search transactions"><button class="text-btn" id="exportBtn">Export CSV ↗</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>TRANSACTION</th><th>CATEGORY</th><th>DATE</th><th class="right">AMOUNT</th><th></th></tr></thead><tbody id="transactionRows"></tbody></table></div>
+      <div class="empty-state" id="emptyState"><div class="empty-illustration">✧</div><b>Your money story starts here</b><p>Add your first expense to see it appear here.</p><button class="primary-btn" id="emptyAdd">＋ Add expense</button></div>
+    </section>
+    <footer>Made for mindful spending <span>✦</span> <small>ExpenseFlow · Your personal finance space</small></footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
