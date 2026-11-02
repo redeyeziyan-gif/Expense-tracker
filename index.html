@@ -32,7 +32,25 @@
 
     <section class="summary-grid">
       <article class="summary-card balance-card"><div class="card-top"><span>Total expenses</span><span class="card-icon violet">↗</span></div><h2 id="totalAmount">₹0</h2><div class="card-foot"><span class="trend">↗ <b id="monthCount">0</b> entries this month</span><span class="muted">This month</span></div><div class="decor-orb"></div></article>
-      <article class="summary-card"><div class="card-top"><span>Monthly budget</span><span class="card-icon mint">◷</span></div><h2 id="budgetAmount">₹25,000</h2><div class="progress-track"><div class="progress-fill" id="budgetProgress"></div></div><div class="card-foot"><span id="budgetUsed">0% used</span><span class="muted" id="budgetRemaining">₹25,000 left</span></div></article>
+      <article class="summary-card">
+  <div class="card-top">
+    <span>Monthly budget</span>
+    <span class="card-icon mint">◷</span>
+  </div>  <h2 id="budgetAmount">₹0</h2>  <div class="budget-edit">
+    <input
+      type="number"
+      id="budgetInput"
+      placeholder="Enter monthly budget"
+      min="0"
+    >
+    <button type="button" id="saveBudget">Save</button>
+  </div>  <div class="progress-track">
+    <div class="progress-fill" id="budgetProgress"></div>
+  </div>  <div class="card-foot">
+    <span id="budgetUsed">0% used</span>
+    <span class="muted" id="budgetRemaining">₹0 left</span>
+  </div>
+      </article>
       <article class="summary-card"><div class="card-top"><span>Daily average</span><span class="card-icon peach">⌁</span></div><h2 id="dailyAverage">₹0</h2><div class="card-foot"><span class="neutral-pill">Based on this month</span><span class="muted">Per day</span></div></article>
     </section>
 
